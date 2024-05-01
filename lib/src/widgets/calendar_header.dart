@@ -21,6 +21,7 @@ class CalendarHeader extends StatelessWidget {
   final ValueChanged<CalendarFormat> onFormatButtonTap;
   final Map<CalendarFormat, String> availableCalendarFormats;
   final DayBuilder? headerTitleBuilder;
+  final Widget? header;
 
   const CalendarHeader({
     Key? key,
@@ -35,6 +36,7 @@ class CalendarHeader extends StatelessWidget {
     required this.onFormatButtonTap,
     required this.availableCalendarFormats,
     this.headerTitleBuilder,
+    required this.header,
   }) : super(key: key);
 
   @override
@@ -61,7 +63,7 @@ class CalendarHeader extends StatelessWidget {
                 GestureDetector(
                   onTap: onHeaderTap,
                   onLongPress: onHeaderLongPress,
-                  child: Text(
+                  child: header ?? Text(
                     text,
                     style: headerStyle.titleTextStyle,
                     textAlign: headerStyle.titleCentered
