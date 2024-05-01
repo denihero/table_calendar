@@ -21,7 +21,7 @@ class CalendarHeader extends StatelessWidget {
   final ValueChanged<CalendarFormat> onFormatButtonTap;
   final Map<CalendarFormat, String> availableCalendarFormats;
   final DayBuilder? headerTitleBuilder;
-  final Function<Widget>(DateTime date)? headerBuilder;
+  final Widget Function<Widget>(DateTime date)? headerBuilder;
 
   const CalendarHeader({
     Key? key,
