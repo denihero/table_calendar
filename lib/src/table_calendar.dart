@@ -204,7 +204,8 @@ class TableCalendar<T> extends StatefulWidget {
   /// Called when the calendar is created. Exposes its PageController.
   final void Function(PageController pageController)? onCalendarCreated;
 
-  final Function<Widget>(DateTime date)? header;
+  final Function<Widget>(DateTime date)? headerBuilder;
+
 
   /// Creates a `TableCalendar` widget.
   TableCalendar({
@@ -262,7 +263,7 @@ class TableCalendar<T> extends StatefulWidget {
     this.onPageChanged,
     this.onFormatChanged,
     this.onCalendarCreated,
-    this.header,
+    this.headerBuilder,
   })  : assert(availableCalendarFormats.keys.contains(calendarFormat)),
         assert(availableCalendarFormats.length <= CalendarFormat.values.length),
         assert(weekendDays.isNotEmpty
@@ -476,7 +477,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
 
                   widget.onFormatChanged?.call(format);
                 },
-                headerBuilder: widget.header,
+                headerBuilder: widget.headerBuilder,
               );
             },
           ),
