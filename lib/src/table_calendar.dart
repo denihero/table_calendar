@@ -674,7 +674,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
               end: widget.calendarStyle.markersAutoAligned
                   ? null
                   : widget.calendarStyle.markersOffset.end,
-              child: Row(
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: events
                     .take(widget.calendarStyle.markersMaxCount)
